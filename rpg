@@ -1,0 +1,90 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class RockPaperScissors {
+    public static void main(String[] args) {
+
+        // ============================================
+        // ACT 1: SET THE STAGE
+        // ============================================
+
+        // TODO 1:
+        // Create a String array called "choices"
+        // Index 0 = Scissor
+        // Index 1 = Rock
+        // Index 2 = Paper
+        // We use this array to convert numbers into words
+        String[] choices = {"Scissor", "Rock", "Paper"};
+
+        // TODO 2:
+        // Create a Scanner object called "input"
+        // This allows us to read input from the keyboard
+        Scanner input = new Scanner(System.in);
+
+        // TODO 3:
+        // Create a Random object called "rand"
+        // This will generate random numbers for the computer
+        Random rand = new Random();
+
+        // ============================================
+        // ACT 2: GENERATE COMPUTER'S CHOICE
+        // ============================================
+
+        // TODO 4:
+        // Generate a random integer: 0, 1, or 2
+        // nextInt(3) gives numbers from 0 up to (but not including) 3
+        int computer = rand.nextInt(3);
+
+        // ============================================
+        // ACT 3: GET USER'S CHOICE
+        // ============================================
+
+        // TODO 5:
+        // Prompt the user to enter a number
+        System.out.print("scissor (0), rock (1), paper (2): ");
+
+        // TODO 6:
+        // Read the user's input and store it in "user"
+        int user = input.nextInt();
+
+        // ============================================
+        // ACT 4: DISPLAY CHOICES
+        // ============================================
+
+        // TODO 7:
+        // Display what the computer chose
+        // choices[computer] converts the number into text
+        System.out.print("The computer is " + choices[computer] + ". ");
+
+        // TODO 8:
+        // Display what the user chose
+        System.out.print("You are " + choices[user] + ". ");
+
+        // ============================================
+        // ACT 5: DETERMINE THE WINNER
+        // ============================================
+
+        // TODO 9:
+        // Check for a draw
+        if (user == computer) {
+            System.out.println("It is a draw!");
+        }
+
+        // TODO 10:
+        // Check all winning conditions for the user
+        else if (
+            (user == 0 && computer == 2) ||   // scissor cuts paper
+            (user == 1 && computer == 0) ||   // rock smashes scissor
+            (user == 2 && computer == 1)      // paper wraps rock
+        ) {
+            System.out.println("You won!");
+        }
+
+        // TODO 11:
+        // If none of the above conditions are true,
+        // then the computer must have won
+        else {
+            System.out.println("Computer wins!");
+        }
+    }
+}
